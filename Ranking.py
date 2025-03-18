@@ -81,12 +81,12 @@ feature_embeddings = prepare_feature_embeddings(df_features, model)
 product_embeddings = prepare_product_embeddings(df_products, df_avail_price, model)
 
 # Example usage
-input_features1 = ["Lightweight", "UV-protection", "Portability", "Safety"]
+input_features1 = ["Durability", "Versatility", "Storage space"]
 top_products = recommend_products(input_features1)
 print(top_products)
 print('-----------------------')
 
-input_features2 = ["Lightweight", "UV-protection", "Portability"]
+input_features2 = ["Adjustable handlebar", "UV-protection", "Comfort"]
 top_products = recommend_products(input_features2)
 print(top_products)
 print('-----------------------')
