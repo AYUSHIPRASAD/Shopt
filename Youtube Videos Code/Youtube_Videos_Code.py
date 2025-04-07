@@ -13,9 +13,7 @@ import sys
 sys.stdout.reconfigure(encoding='utf-8')
 
 def clean_text(text):
-    """
-    Clean text by removing special characters, extra whitespace, and HTML entities.
-    """
+    ## Clean text by removing special characters, extra whitespace, and HTML entities.
     text = html.unescape(text)  # Decode HTML entities
     text = re.sub(r'http\S+|www\.\S+', '', text)  # Remove URLs
     text = re.sub(r'[^\w\s.,!?-]', ' ', text)  # Remove special characters
@@ -36,7 +34,7 @@ def get_youtube_videos(api_key, keywords, max_results=5, min_views=100, min_like
     
 
     def is_english(text):
-        """Check if text is in English"""
+        ## Check if text is in English
         if not text or len(text.strip()) < 10:  # Skip very short texts
             return False
         try:
@@ -275,10 +273,7 @@ def get_transcripts(video_ids):
     return transcripts
 
 def clean_video_data(videos, transcripts):
-    """
-    Clean all collected data at once.
-
-    """
+    ## Clean all collected data at once.
     cleaned_videos = []
     for video in videos:
         cleaned_video = {
@@ -296,10 +291,7 @@ def clean_video_data(videos, transcripts):
     return cleaned_videos
 
 def save_to_csv(data, filename):
-    """
-    Save data to a CSV file.
-
-    """
+    ## Save data to a CSV file.
     try:
         df = pd.DataFrame(data)
         df.to_csv(filename, index=False, encoding='utf-8')
